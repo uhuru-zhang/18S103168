@@ -11,21 +11,21 @@ class Test(unittest.TestCase):
         self.board.put(1, 1, Piece("white"))
 
     def test_is_valid(self):
-        self.assertRaises(self.board.is_valid(100, 100))
-        self.assertRaises(self.board.is_valid(1, 1))
+        self.assertFalse(self.board.is_valid(100, 100))
+        self.assertTrue(self.board.is_valid(1, 1))
 
     def test_move(self):
         self.board.move(1, 1, 2, 2)
         self.board.move(0, 0, 2, 2)
-        self.assertRaises(self.board.move(1, 1, 10, 100))
+        self.board.move(1, 1, 10, 100)
 
     def test_eat(self):
         self.board.eat(1, 1)
-        self.assertRaises(self.board.eat(10, 100))
+        self.board.eat(10, 100)
 
     def see(self):
         self.board.see(1, 1)
-        self.assertRaises(self.board.see(10, 100))
+        self.board.see(10, 100)
 
     def nums(self):
         self.board.nums()

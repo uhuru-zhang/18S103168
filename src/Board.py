@@ -10,28 +10,38 @@ class Board(object):
 
     def is_valid(self, x, y):
         if x < len(self.board) and y < len(self.board):
-            return
-        raise Exception("({x}, {y}) 位置不合法！")
+            return True
+        return False
 
     def see(self, x, y):
-        self.is_valid(x, y)
+        if not self.is_valid(x, y):
+            print("位置不合法！")
+            return
 
         return self.board[x][y]
 
     def put(self, x, y, position):
-        self.is_valid(x, y)
+        if not self.is_valid(x, y):
+            print("位置不合法！")
+            return
 
         self.board[x][y] = position
 
     def move(self, x1, y1, x2, y2):
-        self.is_valid(x1, y1)
-        self.is_valid(x2, y2)
+        if not self.is_valid(x1, y1):
+            print("位置不合法！")
+            return
+        if not self.is_valid(x2, y2):
+            print("位置不合法！")
+            return
 
         self.board[x2][y2] = self.board[x1][y1]
         self.board[x1][y1] = None
 
     def eat(self, x, y):
-        self.is_valid(x, y)
+        if not self.is_valid(x, y):
+            print("位置不合法！")
+            return
 
         self.board[x][y] = None
 

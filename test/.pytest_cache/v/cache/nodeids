@@ -1,4 +1,5 @@
 [
-  "Action.py::Test::test_move",
-  "Action.py::Test::test_put"
+  "Board.py::Test::test_eat",
+  "Board.py::Test::test_is_valid",
+  "Board.py::Test::test_move"
 ]
